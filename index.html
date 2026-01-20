@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web de Soto</title>
+    <link rel="icon" href="isp.jpg" type="image/png">
+    <style>
+        h1, h2 {
+            color: blue;
+            border: green;
+        }
+        body {
+            background-color: #bbff00;
+        }
+		
+		p {
+			color: red;
+			border: blue;
+			font-size: 20px
+		}
+    </style>
+</head>
+<body>
+    <h1>Bienvenidos a la Página Web de Soto</h1>
+    <img src="isp.jpg" alt="logo">
+	<h1></h1>
+    
+    <button onclick="mostrarTexto()">cosas de molics</button>
+    <div id="texto">
+        <a href="https://scratch.mit.edu/projects/1179509324/">Atsivatla os</a><br>
+		<h1></h1>
+        <a href="https://scratch.mit.edu/users/molics">Ver más proyectos</a>
+		<h1></h1>
+		<a href="https://www.youtube.com/@final_GD_XD">ver canal de youtube</a>
+    </div>
+    
+    <script>
+        // Ocultar el texto de proyectos al cargar
+        document.getElementById("texto").style.display = "none";
+
+        function mostrarTexto() {
+            var texto = document.getElementById("texto");
+            texto.style.display = (texto.style.display === "none") ? "block" : "none"; // Alternar visibilidad
+        }
+    </script>
+    
+    <hr>
+    
+    <h1>Mira a Molly</h1>
+    <img src="comp_1.jpg" width="300" height="300">
+    <img src="comp_2.jpg" width="300" height="300">
+    <h1></h1>
+    <button onclick="molly()">Ver algo sobre Molly</button>
+    
+    <div id="molly" style="display: none;"> <!-- Comienza oculto -->
+        <h1>Todo lo que necesitas saber sobre Molly está en este video</h1>
+        <video src="bf2.mp4" controls width="600">
+			cagaste Tu navegador no soporta video.
+        </video>
+        <p>Si te preguntas por qué un video del bulldog francés y no de Molly, es que Molly es un bulldog francés.</p>
+    </div>
+    
+    <script>
+        function molly() {
+            var texto = document.getElementById("molly");
+            if (texto) { // Asegúrate de que el elemento existe
+                texto.style.display = (texto.style.display === "none") ? "block" : "none"; // Alternar visibilidad
+            }
+        }
+    </script>
+	
+	
+	
+	<h1></h1>
+	<hr>
+    
+    <button onclick="mdeath()">no puedes hacer click aqui</button>
+    
+    <div id="death" style="display: none;"> <!-- Comienza oculto -->
+        <h1>En la página web de Death Clock me salió esto</h1>
+        <img src="death.png" width="600" height="1000">
+    </div>
+    
+    <script>
+        function mdeath() {
+            var texto = document.getElementById("death");
+            if (texto) { // Asegúrate de que el elemento existe
+                texto.style.display = (texto.style.display === "none") ? "block" : "none"; // Alternar visibilidad
+            }
+        }
+    </script>
+</body>
+</html>
