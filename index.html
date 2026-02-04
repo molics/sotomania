@@ -151,10 +151,25 @@
 <hr>
 
 
+	    <p id="agradecimiento">¡Gracias por tus sugerencias!</p> <!-- Mensaje oculto inicialmente -->
 
+    <form id="sugerencia-form">
+        <label>Coloca tu sugerencia:</label>
+        <textarea required></textarea> <!-- Cambiado input por textarea -->
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        document.getElementById("sugerencia-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Previene el comportamiento por defecto del formulario
+            document.getElementById("agradecimiento").style.display = "block"; // Muestra el mensaje de agradecimiento
+            this.reset(); // Reinicia el formulario
+        });
+    </script>
 
 	
 	<!-- siempre deve ir al final lo siguente:  -->
 	<a href="index.html">volver al inicio</a>
 </body>
 </html>
+
