@@ -6,173 +6,169 @@
     <title>Página Web de Soto</title>
     <link rel="icon" href="isp.jpg" type="image/png">
     <style>
-        h1, h2 {
-            color: blue;
-            border: green;
-        }
+        /* CONFIGURACIÓN GENERAL */
         body {
             background-color: #bbff00;
-			text-align: center;
+            text-align: center;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
         }
-		
-		p {
-			color: red;
-			border: blue;
-			font-size: 20px
-		}
+        h1, h2 {
+            color: blue;
+        }
+        p {
+            color: red;
+            font-size: 20px;
+        }
+
+        /* CONTENEDOR FLEX PARA LAS DOS COLUMNAS */
+        .main-wrapper {
+            display: flex;
+            flex-wrap: wrap; /* Para que en móviles se apilen */
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* APARTADO IZQUIERDO (Links de Molics) */
+        .sidebar-left {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            border: 3px solid green;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            height: fit-content;
+            position: sticky; /* Se queda fijo al bajar */
+            top: 20px;
+        }
+
+        .sidebar-left a {
+            display: block;
+            margin-bottom: 15px;
+            color: blue;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .sidebar-left a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        /* COLUMNA DERECHA (Tu contenido principal) */
+        .content-main {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
-    <h1>Bienvenidos a la Página Web de Soto</h1>
-    <img src="isp.jpg" alt="logo">
-	<h1></h1>
-	<hr>
-	<h1></h1>
-	<a href="capoter.html">
-		<img src="player1.png" alt="juego" width="300" height="300">
-	</a>
-	<h1></h1>
-    <hr>
-	<h1></h1>
-    <button onclick="mostrarTexto()">cosas de molics</button>
-    <div id="texto">
-        <a href="https://scratch.mit.edu/projects/1179509324/">Atsivatla os</a><br>
-		<h1></h1>
-        <a href="https://scratch.mit.edu/users/molics">Ver más proyectos</a>
-		<h1></h1>
-		<a href="https://www.youtube.com/@final_GD_XD">ver canal de youtube</a>
-		<h1></h1>
-		<a href="https://github.com/molics/sotomania">ver proyecto de github</a>
-		<h1></h1>
-		
-    </div>
-    
-    <script>
-        // Ocultar el texto de proyectos al cargar
-        document.getElementById("texto").style.display = "none";
 
-        function mostrarTexto() {
-            var texto = document.getElementById("texto");
-            texto.style.display = (texto.style.display === "none") ? "block" : "none"; // Alternar visibilidad
-        }
-    </script>
-    
-    <hr>
-    
-    <h1>Mira a Molly</h1>
-    <img src="comp_1.jpg" width="300" height="300">
-    <img src="comp_2.jpg" width="300" height="300">
-    <h1></h1>
-    <button onclick="molly()">Ver algo sobre Molly</button>
-    
-    <div id="molly" style="display: none;"> <!-- Comienza oculto -->
-        <h1>Todo lo que necesitas saber sobre Molly está en este video</h1>
-        <video src="bf2.mp4" controls width="600">
-			cagaste Tu navegador no soporta video.
-        </video>
-        <p>Si te preguntas por qué un video del bulldog francés y no de Molly, es que Molly es un bulldog francés.</p>
+    <h1>Bienvenidos a la Página Web de Soto</h1>
+
+    <div class="main-wrapper">
+        
+        <!-- === APARTADO IZQUIERDO: LINKS DE MOLICS === -->
+        <aside class="sidebar-left">
+            <h2>Cosas de Molics</h2>
+            <hr>
+            <a href="https://scratch.mit.edu">Atsivatla os</a>
+            <a href="https://scratch.mit.edu">Ver más proyectos</a>
+            <a href="https://www.youtube.com">Canal de YouTube</a>
+            <a href="https://github.com">Proyecto GitHub</a>
+            <hr>
+            <p style="font-size: 14px; color: black;">Este apartado ahora está a la izquierda.</p>
+        </aside>
+
+        <!-- === COLUMNA DERECHA: TU CONTENIDO === -->
+        <div class="content-main">
+            <img src="isp.jpg" alt="logo">
+            <hr>
+            <a href="capoter.html">
+                <img src="player1.png" alt="juego" width="300" height="300">
+            </a>
+            
+            <hr>
+            <h1>Mira a Molly</h1>
+            <img src="comp_1.jpg" width="300" height="300">
+            <img src="comp_2.jpg" width="300" height="300">
+            <br>
+            <button onclick="molly()">Ver algo sobre Molly</button>
+            
+            <div id="molly" style="display: none;">
+                <h2>Todo lo que necesitas saber sobre Molly está en este video</h2>
+                <video src="bf2.mp4" controls width="100%">
+                    Tu navegador no soporta video.
+                </video>
+                <p>Si te preguntas por qué un video del bulldog francés y no de Molly, es que Molly es un bulldog francés.</p>
+            </div>
+            
+            <hr>
+            <button onclick="mdeath()">no puedes hacer click aqui</button>
+            <div id="death" style="display: none;">
+                <h2>En la página web de Death Clock me salió esto</h2>
+                <img src="death.png" width="400">
+            </div>
+
+            <hr>
+            <a href="pers.html">Ir a un lugar</a>
+            <hr>
+            <h2>mira mis celulares antiguos</h2>
+            <img src="sam.jpg" width="300">
+            <hr>
+            <h2>descarga tobular!</h2>
+            <p>windows (sin virus)</p>
+            <a href="tobular.zip">descarga aqui</a>
+            <hr>
+            <img src="qr.png" width="300">
+            <hr>
+            <h2>descarga la app de sotomania!</h2>
+            <p>android (sin virus)</p>
+            <a href="sotomania installer.apk">descarga aqui</a>
+            <hr>
+            <a href="https://duckduckgo.com">buscar en duckduckgo</a>
+            <hr>
+            <h2>descarga jesa IA parcialmente offline</h2>
+            <p>windows (sin virus)</p>
+            <a href="https://drive.google.com"> descarga aqui</a>
+            <hr>
+            <p id="agradecimiento" style="display: none;">¡Gracias por tus sugerencias!</p>
+            <form id="sugerencia-form">
+                <label>Coloca tu sugerencia:</label><br>
+                <textarea required style="width: 80%; height: 60px;"></textarea><br>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
     </div>
-    
+
+    <hr>
+    <a href="index.html">volver al inicio</a>
+
     <script>
         function molly() {
-            var texto = document.getElementById("molly");
-            if (texto) { // Asegúrate de que el elemento existe
-                texto.style.display = (texto.style.display === "none") ? "block" : "none"; // Alternar visibilidad
-            }
+            var t = document.getElementById("molly");
+            t.style.display = (t.style.display === "none") ? "block" : "none";
         }
-    </script>
-	
-	
-	
-	<h1></h1>
-	<hr>
-    
-    <button onclick="mdeath()">no puedes hacer click aqui</button>
-    
-    <div id="death" style="display: none;"> <!-- Comienza oculto -->
-        <h1>En la página web de Death Clock me salió esto</h1>
-        <img src="death.png" width="600" height="1000">
-    </div>
-    
-    <script>
         function mdeath() {
-            var texto = document.getElementById("death");
-            if (texto) { // Asegúrate de que el elemento existe
-                texto.style.display = (texto.style.display === "none") ? "block" : "none"; // Alternar visibilidad
-            }
+            var t = document.getElementById("death");
+            t.style.display = (t.style.display === "none") ? "block" : "none";
         }
-    </script>
-
-	<hr>
-
-	<a href="pers.html"> ir a un lugar</a>
-
-	<hr>
-
-	<h1>mira mis celulares antiguos</h1>
-	<img src="sam.jpg" width="300" height="300">
-
-	<hr>
-
-	<h1>descarga tobular!</h1>
-	<p>windows</p>
-	<h1></h1>
-	<p>sin virus</p>
-	<a href="tobular.zip">descarga aqui</a>
-
-	<hr>
-
-	<img src="qr.png" width="300" height="350">
-
-
-	<hr>
-
-	<h1>descarga la app de sotomania!</h1>
-	<p> android </p>
-	<h1></h1>
-	<p>sin virus</p>
-	<a href="sotomania installer.apk">descarga aqui</a>
-	<hr>
-
-	<a href="https://duckduckgo.com">buscar en duckduckgo</a>
-
-    <h1></h1>
-
-	<hr>
-
-	<h1>descarga jesa la inteligencia artificial parcialmente offline</h1>
-	<p>windows</p>
-	<h1></h1>
-	<p>sin virus</p>
-	<a href="https://drive.google.com/file/d/1YK2lJvSIQtA70CU1I1Cftr5RCMASSECb/view?usp=sharing"> descarga aqui</a>
-
-
-	
-<hr>
-
-
-	<p id="agradecimiento" style="display: none;">¡Gracias por tus sugerencias!</p>
-
-
-    <form id="sugerencia-form">
-        <label>Coloca tu sugerencia:</label>
-        <textarea required></textarea> <!-- Cambiado input por textarea -->
-        <button type="submit">Enviar</button>
-    </form>
-
-    <script>
         document.getElementById("sugerencia-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Previene el comportamiento por defecto del formulario
-            document.getElementById("agradecimiento").style.display = "block"; // Muestra el mensaje de agradecimiento
-            this.reset(); // Reinicia el formulario
+            event.preventDefault();
+            document.getElementById("agradecimiento").style.display = "block";
+            this.reset();
         });
     </script>
-
-	<hr>
-	
-	<!-- siempre deve ir al final lo siguente:  -->
-	<a href="index.html">volver al inicio</a>
 </body>
 </html>
-
-
