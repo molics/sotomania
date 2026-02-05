@@ -12,7 +12,7 @@
             text-align: center;
             font-family: sans-serif;
             margin: 0;
-            padding: 0; /* Asegurarse que no haya padding en el body para el menú */
+            padding: 0;
         }
         h1, h2 {
             color: blue;
@@ -34,11 +34,16 @@
             height: 100%; /* Ocupa toda la altura de la pantalla */
             width: 0; /* Comienza oculto */
             position: fixed; /* Fijo, encima del contenido */
-            z-index: 1; /* Asegura que esté al frente */
+            z-index: 10; /* Aumentado para asegurar que esté arriba de todo */
             top: 0;
             left: 0;
             background-color: #fff;
-            overflow-x: hidden; /* Oculta contenido extra */
+            
+            /* --- ESTO ES LO QUE ARREGLA EL PROBLEMA --- */
+            overflow-y: auto; /* Permite bajar (scroll vertical) */
+            overflow-x: hidden; /* Oculta contenido extra lateral */
+            /* ------------------------------------------ */
+
             transition: 0.5s; /* Animación de apertura/cierre */
             padding-top: 60px;
             border-right: 3px solid green;
@@ -69,9 +74,8 @@
         }
 
         /* --- CONTENIDO PRINCIPAL --- */
-        /* Envuelve todo tu contenido que no es el menú */
         .main-content-wrapper {
-            transition: margin-left .5s; /* Empuja el contenido cuando el menú se abre */
+            transition: margin-left .5s; 
             padding: 20px;
         }
 
@@ -83,7 +87,7 @@
             color: white;
             padding: 10px 15px;
             border: none;
-            position: fixed; /* Fijo en la pantalla */
+            position: fixed; 
             top: 10px;
             left: 10px;
             z-index: 2;
@@ -113,10 +117,12 @@
             <textarea required style="width: 80%; height: 60px;"></textarea><br>
             <button type="submit">Enviar</button>
         </form>
+        <!-- Espacio extra al final para que sea fácil ver todo -->
+        <div style="height: 50px;"></div>
     </div>
 
-    <!-- BOTÓN PARA ABRIR EL MENÚ (la flechita o icono de menú) -->
-    <button class="openbtn" onclick="openNav()">&#9776; Menú</button>
+    <!-- BOTÓN PARA ABRIR EL MENÚ -->
+    <button class="openbtn" onclick="openNav()">☰ Menú</button>
 
     <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
     <div id="main" class="main-content-wrapper">
@@ -171,18 +177,14 @@
         <p>windows (sin virus)</p>
         <a href="https://drive.google.com"> descarga aqui</a>
 
-
         <hr>
         <a href="index.html">volver al inicio</a>
     </div>
 
     <script>
-        // Funciones para abrir y cerrar el menú lateral
         function openNav() {
-            // Define el ancho que tendrá el menú abierto
             var menuWidth = "300px"; 
             document.getElementById("mySidebar").style.width = menuWidth;
-            // Mueve el contenido principal a la derecha para dar espacio (opcional, pero se ve mejor)
             document.getElementById("main").style.marginLeft = menuWidth;
         }
 
@@ -191,7 +193,6 @@
             document.getElementById("main").style.marginLeft= "0";
         }
 
-        // Tus otras funciones JS
         function molly() {
             var t = document.getElementById("molly");
             t.style.display = (t.style.display === "none") ? "block" : "none";
@@ -208,5 +209,3 @@
     </script>
 </body>
 </html>
-
-
