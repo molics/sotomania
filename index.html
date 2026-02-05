@@ -12,7 +12,7 @@
             text-align: center;
             font-family: sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0; /* Asegurarse que no haya padding en el body para el menú */
         }
         h1, h2 {
             color: blue;
@@ -21,143 +21,175 @@
             color: red;
             font-size: 20px;
         }
-
-        /* CONTENEDOR FLEX PARA LAS DOS COLUMNAS */
-        .main-wrapper {
-            display: flex;
-            flex-wrap: wrap; /* Para que en móviles se apilen */
-            gap: 20px;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        hr {
+            margin: 20px 0;
         }
 
-        /* APARTADO IZQUIERDO (Links de Molics) */
+        /* --- MENÚ LATERAL (SIDEBAR) --- */
         .sidebar-left {
-            flex: 1;
-            min-width: 250px;
-            background-color: white;
-            border: 3px solid green;
-            border-radius: 15px;
-            padding: 20px;
+            height: 100%; /* Ocupa toda la altura de la pantalla */
+            width: 0; /* Comienza oculto */
+            position: fixed; /* Fijo, encima del contenido */
+            z-index: 1; /* Asegura que esté al frente */
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            overflow-x: hidden; /* Oculta contenido extra */
+            transition: 0.5s; /* Animación de apertura/cierre */
+            padding-top: 60px;
+            border-right: 3px solid green;
             text-align: center;
-            height: fit-content;
-            position: sticky; /* Se queda fijo al bajar */
-            top: 20px;
         }
 
         .sidebar-left a {
-            display: block;
-            margin-bottom: 15px;
-            color: blue;
+            padding: 8px 8px 8px 32px;
             text-decoration: none;
-            font-weight: bold;
             font-size: 18px;
+            color: blue;
+            display: block;
+            transition: 0.3s;
+            margin-bottom: 15px;
         }
 
         .sidebar-left a:hover {
             color: red;
-            text-decoration: underline;
         }
 
-        /* COLUMNA DERECHA (Tu contenido principal) */
-        .content-main {
-            flex: 2;
-            min-width: 300px;
+        /* Botón para cerrar el menú (la 'X') */
+        .sidebar-left .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
+        /* --- CONTENIDO PRINCIPAL --- */
+        /* Envuelve todo tu contenido que no es el menú */
+        .main-content-wrapper {
+            transition: margin-left .5s; /* Empuja el contenido cuando el menú se abre */
+            padding: 20px;
+        }
+
+        /* --- BOTÓN DE APERTURA --- */
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed; /* Fijo en la pantalla */
+            top: 10px;
+            left: 10px;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
 
-    <h1>Bienvenidos a la Página Web de Soto</h1>
-
-    <div class="main-wrapper">
-        
-        <!-- === APARTADO IZQUIERDO: LINKS DE MOLICS === -->
-        <aside class="sidebar-left">
-            <h2>Cosas de Molics</h2>
-            <hr>
-            <a href="https://scratch.mit.edu">Atsivatla os</a>
-            <a href="https://scratch.mit.edu">Ver más proyectos</a>
-            <a href="https://www.youtube.com">Canal de YouTube</a>
-            <a href="https://github.com">Proyecto GitHub</a>
-            <hr>
-            <a href="capoter.html">
-                <img src="player1.png" alt="juego" width="100" height="100">
-            </a>
-        </aside>
-
-        <!-- === COLUMNA DERECHA: TU CONTENIDO === -->
-        <div class="content-main">
-            <img src="isp.jpg" alt="logo">
-            <hr>
-            <a href="capoter.html">
-                <img src="player1.png" alt="juego" width="300" height="300">
-            </a>
-            
-            <hr>
-            <h1>Mira a Molly</h1>
-            <img src="comp_1.jpg" width="300" height="300">
-            <img src="comp_2.jpg" width="300" height="300">
-            <br>
-            <button onclick="molly()">Ver algo sobre Molly</button>
-            
-            <div id="molly" style="display: none;">
-                <h2>Todo lo que necesitas saber sobre Molly está en este video</h2>
-                <video src="bf2.mp4" controls width="100%">
-                    Tu navegador no soporta video.
-                </video>
-                <p>Si te preguntas por qué un video del bulldog francés y no de Molly, es que Molly es un bulldog francés.</p>
-            </div>
-            
-            <hr>
-            <button onclick="mdeath()">no puedes hacer click aqui</button>
-            <div id="death" style="display: none;">
-                <h2>En la página web de Death Clock me salió esto</h2>
-                <img src="death.png" width="400">
-            </div>
-
-            <hr>
-            <a href="pers.html">Ir a un lugar</a>
-            <hr>
-            <h2>mira mis celulares antiguos</h2>
-            <img src="sam.jpg" width="300">
-            <hr>
-            <h2>descarga tobular!</h2>
-            <p>windows (sin virus)</p>
-            <a href="tobular.zip">descarga aqui</a>
-            <hr>
-            <img src="qr.png" width="300">
-            <hr>
-            <h2>descarga la app de sotomania!</h2>
-            <p>android (sin virus)</p>
-            <a href="sotomania installer.apk">descarga aqui</a>
-            <hr>
-            <a href="https://duckduckgo.com">buscar en duckduckgo</a>
-            <hr>
-            <h2>descarga jesa IA parcialmente offline</h2>
-            <p>windows (sin virus)</p>
-            <a href="https://drive.google.com"> descarga aqui</a>
-            <hr>
-            <p id="agradecimiento" style="display: none;">¡Gracias por tus sugerencias!</p>
-            <form id="sugerencia-form">
-                <label>Coloca tu sugerencia:</label><br>
-                <textarea required style="width: 80%; height: 60px;"></textarea><br>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-
+    <!-- MENÚ LATERAL -->
+    <div id="mySidebar" class="sidebar-left">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <h2>Cosas de Molics</h2>
+        <hr>
+        <a href="https://scratch.mit.edu">Atsivatla os</a>
+        <a href="https://scratch.mit.edu">Ver más proyectos</a>
+        <a href="https://www.youtube.com">Canal de YouTube</a>
+        <a href="https://github.com">Proyecto GitHub</a>
+        <hr>
+        <a href="capoter.html">
+            <img src="player1.png" alt="juego" width="100" height="100">
+        </a>
     </div>
 
-    <hr>
-    <a href="index.html">volver al inicio</a>
+    <!-- BOTÓN PARA ABRIR EL MENÚ (la flechita o icono de menú) -->
+    <button class="openbtn" onclick="openNav()">&#9776; Menú</button>
+
+    <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
+    <div id="main" class="main-content-wrapper">
+        <h1>Bienvenidos a la Página Web de Soto</h1>
+        <img src="isp.jpg" alt="logo">
+        <hr>
+        <a href="capoter.html">
+            <img src="player1.png" alt="juego" width="300" height="300">
+        </a>
+        
+        <hr>
+        <h1>Mira a Molly</h1>
+        <img src="comp_1.jpg" width="300" height="300">
+        <img src="comp_2.jpg" width="300" height="300">
+        <br>
+        <button onclick="molly()">Ver algo sobre Molly</button>
+        
+        <div id="molly" style="display: none;">
+            <h2>Todo lo que necesitas saber sobre Molly está en este video</h2>
+            <video src="bf2.mp4" controls width="100%">
+                Tu navegador no soporta video.
+            </video>
+            <p>Si te preguntas por qué un video del bulldog francés y no de Molly, es que Molly es un bulldog francés.</p>
+        </div>
+        
+        <hr>
+        <button onclick="mdeath()">no puedes hacer click aqui</button>
+        <div id="death" style="display: none;">
+            <h2>En la página web de Death Clock me salió esto</h2>
+            <img src="death.png" width="400">
+        </div>
+
+        <hr>
+        <a href="pers.html">Ir a un lugar</a>
+        <hr>
+        <h2>mira mis celulares antiguos</h2>
+        <img src="sam.jpg" width="300">
+        <hr>
+        <h2>descarga tobular!</h2>
+        <p>windows (sin virus)</p>
+        <a href="tobular.zip">descarga aqui</a>
+        <hr>
+        <img src="qr.png" width="300">
+        <hr>
+        <h2>descarga la app de sotomania!</h2>
+        <p>android (sin virus)</p>
+        <a href="sotomania installer.apk">descarga aqui</a>
+        <hr>
+        <a href="https://duckduckgo.com">buscar en duckduckgo</a>
+        <hr>
+        <h2>descarga jesa IA parcialmente offline</h2>
+        <p>windows (sin virus)</p>
+        <a href="https://drive.google.com"> descarga aqui</a>
+        <hr>
+        <p id="agradecimiento" style="display: none;">¡Gracias por tus sugerencias!</p>
+        <form id="sugerencia-form">
+            <label>Coloca tu sugerencia:</label><br>
+            <textarea required style="width: 80%; height: 60px;"></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <hr>
+        <a href="index.html">volver al inicio</a>
+    </div>
 
     <script>
+        // Funciones para abrir y cerrar el menú lateral
+        function openNav() {
+            // Define el ancho que tendrá el menú abierto
+            var menuWidth = "300px"; 
+            document.getElementById("mySidebar").style.width = menuWidth;
+            // Mueve el contenido principal a la derecha para dar espacio (opcional, pero se ve mejor)
+            document.getElementById("main").style.marginLeft = menuWidth;
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+        }
+
+        // Tus otras funciones JS
         function molly() {
             var t = document.getElementById("molly");
             t.style.display = (t.style.display === "none") ? "block" : "none";
